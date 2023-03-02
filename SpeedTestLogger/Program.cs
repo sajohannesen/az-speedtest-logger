@@ -14,6 +14,19 @@ var results = new TestResult(
     Data: testData
     );
 
+using var client = new SpeedTestApiClient(config.ApiUrl);
+
+var success = await client.PublishTestResult(results);
+
+if (success)
+{
+    Console.WriteLine("Speedtest complete!");
+}
+else
+{
+    Console.WriteLine("Speedtest failed!");
+}
+
 
 
 
